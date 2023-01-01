@@ -11,6 +11,7 @@
 using namespace std;
 
 const string filename = "./demo.log";
+const string delimiters = "=,";
 
 const vector<double> percentile_list = {0.25, 0.5, 0.9, 0.95};
 
@@ -34,7 +35,7 @@ void split_strpbrk(string const &s, char const *delims, vector<string_view> &ret
 void parseLine(const string &line, vector<double> &numbers)
 {
     vector<string_view> tokens;
-    split_strpbrk(line, ",=", tokens);
+    split_strpbrk(line, delimiters.c_str(), tokens);
     numbers.push_back(stod(string(tokens[3])));
 }
 
